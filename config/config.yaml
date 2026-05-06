@@ -1,0 +1,30 @@
+project:
+  name: used_car_price_project_enhanced
+  random_state: 42
+
+data:
+  raw_path: data/vehicles.csv
+  processed_path: data/processed_vehicles.csv
+  sample_for_development: true
+  sample_size: 500000
+  target: price
+
+cleaning:
+   min_price: 5000
+   max_price: 100000
+   min_year: 1967
+   max_year: 2026
+   max_odometer: 300000
+
+modeling:
+  test_size: 0.2
+  cv_folds: 3
+  run_hyperparameter_tuning: true
+  classification_target_name: is_expensive
+  expensive_threshold: median
+
+outputs:
+  plots_dir: plots
+  reports_dir: reports
+  models_dir: models
+  logs_dir: logs
